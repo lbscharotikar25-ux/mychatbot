@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A fun AI chatbot for students to learn, play quizzes and ask curious questions." />
+  <title>BuddyAI — Learn, Play & Explore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home"><span class="brand-icon">✦</span><span>Buddy<span class="brand-ai">AI</span></span></a>
+      <div class="profile-card">
+        <div class="profile-avatar">🧑‍🎓</div>
+        <div><strong>Student Zone</strong><small>Curious mind, big ideas!</small></div>
+      </div>
+      <p class="side-label">MENU</p>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="chat"><span>💬</span> AI Chat</button>
+        <button class="nav-item" data-view="quiz"><span>🧠</span> Quick Quiz</button>
+        <button class="nav-item" data-view="fun"><span>🎉</span> Fun Zone</button>
+      </nav>
+      <div class="sidebar-tip"><div class="tip-star">🌟</div><strong>Keep exploring!</strong><p>Every great discovery starts with a question.</p></div>
+      <div class="sidebar-bottom">Made for curious students <span>💙</span></div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <div class="mobile-brand">✦ Buddy<span>AI</span></div>
+        <div class="topbar-note"><span class="online-dot"></span> Your learning buddy is online</div>
+        <button class="help-button" id="helpButton" title="About BuddyAI">ⓘ <span>About</span></button>
+      </header>
+
+      <section class="view active" id="chatView">
+        <div class="welcome-banner">
+          <div class="welcome-copy"><span class="eyebrow">YOUR FRIENDLY AI SIDEKICK</span><h1>Hey there, <span>Superstar!</span> 👋</h1><p>Ready to learn something cool today? Ask me anything!</p></div>
+          <img src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?auto=format&fit=crop&w=520&q=85" alt="Friendly futuristic robot" class="hero-image" />
+          <div class="banner-sparkle">✦</div>
+        </div>
+
+        <div class="chat-layout">
+          <section class="chat-panel">
+            <div class="chat-heading"><div class="bot-avatar">🤖<i></i></div><div><h2>Chat with Buddy</h2><p><span class="online-dot"></span> Always happy to help!</p></div><span class="chat-tag">AI FRIEND</span></div>
+            <div class="messages" id="messages" aria-live="polite">
+              <div class="message-row bot-row"><div class="tiny-avatar">🤖</div><div class="bubble-wrap"><span class="sender">BuddyAI</span><div class="bubble">Hiii! 👋 I'm Buddy, your learning sidekick. Ask me a question, tell me a joke, or let's explore something awesome! ✨</div><time>Just now</time></div></div>
+            </div>
+            <div class="suggestion-area"><span>TRY ASKING</span><div class="suggestions"><button class="suggestion">Why is the sky blue? 🌈</button><button class="suggestion">Tell me a funny joke 😂</button><button class="suggestion">What is AI? 🤖</button></div></div>
+            <form class="chat-input-area" id="chatForm"><input id="chatInput" type="text" placeholder="Type your question here..." autocomplete="off" aria-label="Type your message" /><button class="send-button" type="submit">Send <span>➤</span></button></form>
+            <p class="disclaimer">BuddyAI is a fun demo. Check important school answers with your teacher. 💙</p>
+          </section>
+          <aside class="right-column">
+            <div class="side-card daily-card"><div class="card-icon">💡</div><span class="card-kicker">TODAY'S SPARK</span><h3 id="dailyFact">Octopuses have three hearts!</h3><button id="newFact">Another cool fact ↗</button></div>
+            <div class="side-card quick-card"><div class="quick-title"><h3>Quick activities</h3><span>⚡</span></div><button class="activity-link" data-action="quiz"><span class="activity-icon purple">🧠</span><span><b>Play a quiz</b><small>Test your brainpower</small></span><span class="chevron">›</span></button><button class="activity-link" data-action="fun"><span class="activity-icon orange">🎲</span><span><b>Random question</b><small>Discover something new</small></span><span class="chevron">›</span></button><button class="activity-link" data-action="joke"><span class="activity-icon green">😂</span><span><b>Make me laugh</b><small>Get a silly joke</small></span><span class="chevron">›</span></button></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="quizView">
+        <div class="page-heading"><span class="eyebrow">BRAIN POWER TIME</span><h1>Let's play a <span>quick quiz!</span> 🧠</h1><p>Pick the right answer and collect your brain points.</p></div>
+        <div class="quiz-card"><div class="quiz-top"><span id="quizProgress">QUESTION 1 OF 5</span><span class="score-pill">⭐ Score: <b id="score">0</b></span></div><div class="progress-track"><div id="progressBar"></div></div><div class="quiz-emoji" id="quizEmoji">🌍</div><h2 id="quizQuestion">Which planet is known as the Red Planet?</h2><div class="answers" id="answers"></div><p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p><button class="primary-button" id="nextQuestion" disabled>Next question →</button></div>
+      </section>
+
+      <section class="view" id="funView">
+        <div class="page-heading"><span class="eyebrow">SMILE, PLAY, DISCOVER</span><h1>Welcome to the <span>Fun Zone!</span> 🎉</h1><p>A little fun makes learning extra awesome.</p></div>
+        <div class="fun-grid">
+          <article class="fun-card question-card"><div class="fun-art">🎲</div><span class="card-kicker">CURIOSITY CHALLENGE</span><h2>Random question</h2><p>Get a surprising question to think about.</p><div class="fun-result" id="randomQuestion">What would happen if humans could fly?</div><button class="primary-button" id="randomButton">Give me a question ↗</button></article>
+          <article class="fun-card joke-card"><div class="fun-art">😂</div><span class="card-kicker">GIGGLE BREAK</span><h2>Joke machine</h2><p>Ready for a little laugh?</p><div class="fun-result" id="jokeResult">Why did the computer go to the doctor? It had a virus! 🦠</div><button class="primary-button" id="jokeButton">Tell me another ↗</button></article>
+          <article class="fun-card fact-card"><div class="fun-art">🔬</div><span class="card-kicker">WOW OF THE DAY</span><h2>Cool fact generator</h2><p>Discover something amazing about our world.</p><div class="fun-result" id="funFact">A day on Venus is longer than its year!</div><button class="primary-button" id="factButton">Surprise me ↗</button></article>
+        </div>
+      </section>
+      <footer class="footer">Keep being curious. The world is full of amazing things! <span>💙</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
